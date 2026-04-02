@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Clip Strips - Exposição Inteligente</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+
+  <style>
+    :root {
+      --primary: #111;
+      --accent: #25D366;
+      --bg: #f9f9f9;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: #333;
+    }
+
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 1.2rem;
+    }
+
+    .hero {
+      min-height: 50vh;
+      background: 
+      linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),
+      url('images/hero_banner.png') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      background-position: center right;
+    }
+
+
+    .hero-content {
+      background: rgba(0,0,0,0.6);
+      padding: 25px;
+      border-radius: 12px;
+      color: white;
+      animation: fadeIn 1s ease;
+    }
+
+    .hero h1 {
+      font-size: 1.8rem;
+    }
+
+    .hero p {
+      margin-top: 10px;
+      font-size: 0.95rem;
+    }
+
+    .container {
+      padding: 40px 15px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .container-text {
+      padding: 40px 15px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 1.6rem;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      transform: translateY(20px);
+      opacity: 0;
+      transition: 0.4s;
+      position: relative;
+    }
+
+    .card.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .card:hover img {
+      transform: scale(1.1);
+    }
+
+    .card-content {
+      padding: 15px;
+    }
+
+    .card h3 {
+      margin-bottom: 5px;
+    }
+
+    .about {
+      text-align: center;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .cta {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .btn {
+      background: var(--accent);
+      color: white;
+      padding: 14px 22px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.85rem;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--accent);
+      color: white;
+      border-radius: 50%;
+      padding: 15px;
+      font-size: 20px;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      animation: pulse 2s infinite;
+    }
+
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+
+    .lightbox-img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 10px;
+      animation: zoomIn 0.3s ease;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      font-size: 35px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+  }
+
+  .prev { left: 20px; }
+  .next { right: 20px; }
+
+@keyframes zoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    @media(min-width: 768px) {
+      .hero {
+        min-height: 80vh;
+        padding: 20px;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+      }
+
+      .products {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .card img {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+
+<div id="lightbox" class="lightbox">
+  <span class="close">&times;</span>
+  <span class="prev">&#10094;</span>
+  <img class="lightbox-img" id="lightbox-img">
+  <span class="next">&#10095;</span>
+</div>
+
+<body>
+
+<header>
+  Clip Strips
+</header>
+
+<section class="hero"></section>
+
+<section class="container">
+  <div class="container-text">
+    <h1>Destaque seus produtos no ponto de venda</h1>
+    <p>Solução prática e eficiente com Clip Strip</p>
+  </div>
+
+  <h2 class="section-title">Produtos</h2>
+
+  <div class="products">
+    <div class="card">
+      <img src="images/img1.jpg" data-index="0">
+      <div class="card-content">
+        <h3>Clip Strip Simples</h3>
+        <p>Perfeito para organização básica.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="images/img2.jpg" data-index="1">
+      <div class="card-content">
+        <h3>Clip Strip Reforçado</h3>
+        <p>Maior resistência e durabilidade.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="images/img4.jpg" data-index="2">
+      <div class="card-content">
+        <h3>Personalizado</h3>
+        <p>Adaptado à sua marca.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="images/img3.jpg" data-index="3">
+    </div>
+
+    <div class="card">
+      <img src="images/img5.jpg" data-index="4">
+    </div>
+
+    <div class="card">
+      <img src="images/img6.jpg" data-index="4">
+    </div>
+
+
+    <div class="card">
+      <img src="images/img7.jpg" data-index="5">
+    </div>
+
+    <div class="card">
+      <img src="images/img8.jpg" data-index="6">
+    </div>    
+
+    <div class="card">
+      <img src="images/img10.jpg" data-index="7">
+    </div>
+
+    <div class="card">
+      <img src="images/img11.jpg" data-index="8">
+    </div>
+
+    <div class="card">
+      <img src="images/img12.jpg" data-index="9">
+    </div>
+
+    <div class="card">
+      <img src="images/img13.jpg" data-index="10">
+    </div>
+    
+  </div>
+</section>
+
+<section class="container">
+  <h2 class="section-title">Sobre</h2>
+
+  <div class="about">
+    Oferecemos soluções inteligentes para exposição de produtos, aumentando a visibilidade e impulsionando vendas no varejo.
+  </div>
+
+  <div class="cta">
+    <a class="btn" href="https://wa.me/5511972727758" target="_blank">
+      Fale no WhatsApp
+    </a>
+  </div>
+</section>
+
+<footer>
+  © 2026 - Clip Strip
+</footer>
+
+<a class="whatsapp-float" href="https://wa.me/5511972727758" target="_blank">
+  💬
+</a>
+
+<script>
+  const cards = document.querySelectorAll('.card');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  cards.forEach(card => observer.observe(card));
+
+  const images = document.querySelectorAll('.card img');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const closeBtn = document.querySelector('.close');
+  const prevBtn = document.querySelector('.prev');
+  const nextBtn = document.querySelector('.next');
+
+  let currentIndex = 0;
+  let imageList = [];
+
+  images.forEach((img, index) => {
+    imageList.push(img.src);
+
+    img.addEventListener('click', () => {
+      currentIndex = index;
+      showImage();
+      lightbox.style.display = 'flex';
+    });
+  });
+
+  function showImage() {
+    lightboxImg.src = imageList[currentIndex];
+  }
+
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % imageList.length;
+    showImage();
+  });
+
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + imageList.length) % imageList.length;
+    showImage();
+  });
+
+  closeBtn.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+  });
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target.classList.contains('lightbox')) {
+      lightbox.style.display = 'none';
+    }
+  });
+
+  // swipe mobile
+  let startX = 0;
+
+  lightbox.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
+  });
+
+  lightbox.addEventListener('touchend', e => {
+    let endX = e.changedTouches[0].clientX;
+
+    if (startX - endX > 50) {
+      nextBtn.click();
+    } else if (endX - startX > 50) {
+      prevBtn.click();
+    }
+  });
+</script>
+
+</body>
+</html>
