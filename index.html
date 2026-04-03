@@ -74,6 +74,7 @@
 
     .container-text {
       padding: 40px 15px;
+      text-align: center;
     }
 
     .section-title {
@@ -106,7 +107,7 @@
 
     .card img {
       width: 100%;
-      height: 180px;
+      height: 260px;
       object-fit: cover;
       transition: transform 0.4s ease;
     }
@@ -248,7 +249,7 @@
       }
 
       .card img {
-        height: 200px;
+        height: 300px;
       }
     }
   </style>
@@ -264,7 +265,13 @@
 <body>
 
 <header>
-  Clip Strips
+  <nav style="display:flex; gap:15px; justify-content:center; flex-wrap:wrap;">
+    <a href="#clip" style="text-decoration: none; color: #f9f9f9">Clip Strip</a>
+    <a href="#faixa" style="text-decoration: none; color: #f9f9f9">Faixa</a>
+    <a href="#hang" style="text-decoration: none; color: #f9f9f9">Hang Tab</a>
+    <a href="#wobbler" style="text-decoration: none; color: #f9f9f9">Wobbler</a>
+    <a href="#clip-expositor" style="text-decoration: none; color: #f9f9f9">Clip Expositor</a>
+  </nav>
 </header>
 
 <section class="hero"></section>
@@ -272,73 +279,57 @@
 <section class="container">
   <div class="container-text">
     <h1>Destaque seus produtos no ponto de venda</h1>
-    <p>Solução prática e eficiente com Clip Strip</p>
+    <p>Solução prática e eficiente com Clip Strips</p>
   </div>
+</section>
 
-  <h2 class="section-title">Produtos</h2>
-
+<!-- CLIP STRIP -->
+<section class="container" id="clip">
+  <h2 class="section-title">Clip Strip</h2>
   <div class="products">
-    <div class="card">
-      <img src="images/img1.jpg" data-index="0">
-      <div class="card-content">
-        <h3>Clip Strip Simples</h3>
-        <p>Perfeito para organização básica.</p>
-      </div>
-    </div>
+    <div class="card"><img src="images/clip_strip/img1.jpeg"></div>
+    <div class="card"><img src="images/clip_strip/img2.jpg"></div>
+    <div class="card"><img src="images/clip_strip/img3.jpg"></div>
+  </div>
+</section>
 
-    <div class="card">
-      <img src="images/img2.jpg" data-index="1">
-      <div class="card-content">
-        <h3>Clip Strip Reforçado</h3>
-        <p>Maior resistência e durabilidade.</p>
-      </div>
-    </div>
+<!-- FAIXA / CANTONEIRA -->
+<section class="container" id="faixa">
+  <h2 class="section-title">Faixa / Cantoneira de Gôndola</h2>
+  <div class="products">
+    <div class="card"><img src="images/faixa/img1.jpg"></div>
+    <div class="card"><img src="images/faixa/img2.jpg"></div>
+    <div class="card"><img src="images/faixa/img3.jpg"></div>
+  </div>
+</section>
 
-    <div class="card">
-      <img src="images/img4.jpg" data-index="2">
-      <div class="card-content">
-        <h3>Personalizado</h3>
-        <p>Adaptado à sua marca.</p>
-      </div>
-    </div>
+<!-- HANG TAB -->
+<section class="container" id="hang">
+  <h2 class="section-title">Hang Tab</h2>
+  <div class="products">
+    <div class="card"><img src="images/hang_tab/img1.jpg"></div>
+    <div class="card"><img src="images/hang_tab/img2.jpg"></div>
+    <div class="card"><img src="images/hang_tab/img3.jpg"></div>
+  </div>
+</section>
 
-    <div class="card">
-      <img src="images/img3.jpg" data-index="3">
-    </div>
+<!-- WOBBLER -->
+<section class="container" id="wobbler">
+  <h2 class="section-title">Wobbler</h2>
+  <div class="products">
+    <div class="card"><img src="images/wobbler/img1.jpg"></div>
+    <div class="card"><img src="images/wobbler/img2.png"></div>
+    <div class="card"><img src="images/wobbler/img3.jpg"></div>
+  </div>
+</section>
 
-    <div class="card">
-      <img src="images/img5.jpg" data-index="4">
-    </div>
-
-    <div class="card">
-      <img src="images/img6.jpg" data-index="4">
-    </div>
-
-
-    <div class="card">
-      <img src="images/img7.jpg" data-index="5">
-    </div>
-
-    <div class="card">
-      <img src="images/img8.jpg" data-index="6">
-    </div>    
-
-    <div class="card">
-      <img src="images/img10.jpg" data-index="7">
-    </div>
-
-    <div class="card">
-      <img src="images/img11.jpg" data-index="8">
-    </div>
-
-    <div class="card">
-      <img src="images/img12.jpg" data-index="9">
-    </div>
-
-    <div class="card">
-      <img src="images/img13.jpg" data-index="10">
-    </div>
-    
+<!-- CLIP EXPOSITOR -->
+<section class="container" id="clip-expositor">
+  <h2 class="section-title">Clip Expositor</h2>
+  <div class="products">
+    <div class="card"><img src="images/clip_expositor/img1.jpeg"></div>
+    <div class="card"><img src="images/clip_expositor/img2.jpg"></div>
+    <div class="card"><img src="images/clip_expositor/img3.jpg"></div>
   </div>
 </section>
 
@@ -348,10 +339,20 @@
   <div class="about">
     Oferecemos soluções inteligentes para exposição de produtos, aumentando a visibilidade e impulsionando vendas no varejo.
   </div>
+</section>
 
-  <div class="cta">
+<section class="container">
+  <h2 class="section-title">Contato</h2>
+
+  <div class="about">
+    <p><strong>WhatsApp:</strong> (11) 97272-7758</p>
+    <p><strong>Email:</strong> comercial@clipstrip.com.br</p>
+    <p><strong>Vendas:</strong> vendas@clipstrip.com.br</p>
+  </div>
+
+  <div class="cta" style="margin-top:20px;">
     <a class="btn" href="https://wa.me/5511972727758" target="_blank">
-      Fale no WhatsApp
+      Falar no WhatsApp
     </a>
   </div>
 </section>
