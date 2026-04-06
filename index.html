@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Clip Strips - Exposição Inteligente</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="images/favicon.png" type="image/png">
 
 
   <style>
@@ -36,29 +37,30 @@
     }
 
     .hero {
-      min-height: 50vh;
+      min-height: 45vh;
       background: 
-      linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),
+      linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)),
       url('images/hero_banner.png') center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       padding: 40px 20px;
-      background-position: center right;
     }
 
 
     .hero-content {
       background: rgba(0,0,0,0.6);
-      padding: 25px;
+      padding: 15px;
       border-radius: 12px;
       color: white;
       animation: fadeIn 1s ease;
+      max-width: 90%;
     }
 
     .hero h1 {
-      font-size: 1.8rem;
+      font-size: 1.4rem;
+      line-height: 1.3;
     }
 
     .hero p {
@@ -232,7 +234,7 @@
 
     @media(min-width: 768px) {
       .hero {
-        min-height: 80vh;
+        min-height: 70vh;
         padding: 20px;
       }
 
@@ -274,14 +276,19 @@
   </nav>
 </header>
 
-<section class="hero"></section>
+<section class="hero">
+  <div class="hero-content">
+    <h1>Destaque seus produtos no ponto de venda</h1>
+    <p>Soluções práticas e eficientes no PDV</p>
+  </div>
+</section>
 
-<section class="container">
+<!-- <section class="container">
   <div class="container-text">
     <h1>Destaque seus produtos no ponto de venda</h1>
     <p>Solução prática e eficiente com Clip Strips</p>
   </div>
-</section>
+</section> -->
 
 <!-- CLIP STRIP -->
 <section class="container" id="clip">
